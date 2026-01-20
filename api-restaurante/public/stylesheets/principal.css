@@ -1,0 +1,43 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header
+{
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    padding: 1em;
+    background-color: black ;
+}
+header img
+{
+    height: 50px;
+}
+
+header h1
+{
+    color: white;
+    margin: 0;
+}
+
+main
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#seccionMenu, #seccionMenuOrdenado
+{
+    padding: 1em;
+}
+
+#seccionMenu h1, #seccionMenuOrdenado h1
+{
+    padding-bottom: 20px;
+}
