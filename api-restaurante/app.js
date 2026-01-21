@@ -7,7 +7,7 @@ var logger = require('morgan');
 // CORS ERROR QUE DA
 var cors = require('cors');
 
-var indexRouter = require('./routes/index');
+var indexRouter = require('./routes');
 let comidaRouter = require('./routes/comida');
 
 var app = express();
