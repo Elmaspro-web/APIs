@@ -83,6 +83,36 @@ class PetService {
             await mongo_client.close();
         }
     }
+
+    static async delete(id) {
+        const uri = 'mongodb://mongoadmin:secret@localhost:27017';
+        const mongo_client = new MongoClient(uri);
+        try {
+            await mongo_client.connect();
+            const database = mongo_client.db('PetsDB');
+            const table = database.collection('pets');
+
+            const pet_data = await table.deleteOne({_id: new ObjectId(id)});
+            return pet_data;
+        } finally {
+            await mongo_client.close();
+        }
+    }
+
+    static async put(id, name, desc, img, type, status) {
+        const uri = 'mongodb://mongoadmin:secret@localhost:27017';
+        const mongo_client = new MongoClient(uri);
+        try {
+            await mongo_client.connect();
+            const database = mongo_client.db('PetsDB');
+            const table = database.collection('pets');
+
+            const pet_data = await table.updateOne({_id: new ObjectId(id)}, {$set: {nombre: name, descripcion: desc, imagen: img, tipo: type, estado: status}});
+            return pet_data;
+        } finally {
+            await mongo_client.close();
+        }
+    }
 }
 
 module.exports = PetService;
