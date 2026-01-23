@@ -1,0 +1,40 @@
+#seccionDinamica section
+{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+}
+
+#seccionDinamica section article
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#seccionDinamica section article a
+{
+  color: black;
+  text-decoration: none;
+}
+
+#seccionDinamica section img
+{
+  max-height: 200px;
+  max-width: 200px;
+}
+
+.card.En.adopcion
+{
+  background-color: green;
+}
+
+.card.En.Venta
+{
+  background-color: red;
+}
+
+.card.Perdido
+{
+  background-color: blue;
+}
