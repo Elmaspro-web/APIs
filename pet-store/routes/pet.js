@@ -31,4 +31,8 @@ router.put('/:id', async function(req, res, next){
     res.json(await PetService.put(req.params.id, req.body.nombre, req.body.descripcion, req.body.imagen, req.body.tipo, req.body.estado));
 });
 
+router.post('/usuarios', async function(req, res, next) {
+    res.json(await PetService.postUser(req.body.usuario, req.body.password));
+});
+
 module.exports = router;

@@ -1,6 +1,8 @@
 "use strict";
 import {_addLocalStorage} from "../utilities/localStorageManager.js";
+import {Petdbservice} from "../servicesPets/petdbservice.js"
 
+const petDBService = new Petdbservice();
 
 export function iniciarSesion(iniciarSesionBoton)
 {
@@ -27,6 +29,10 @@ export function iniciarSesion(iniciarSesionBoton)
             _addLocalStorage("usuario", user);
             alert("Sesión iniciada correctamente");
             window.location.reload();
+        }
+        else
+        {
+            const usuarioAgregado = await petDBService.agregarUsuario(user, pass);
         }
 
     });

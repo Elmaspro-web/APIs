@@ -44,4 +44,26 @@ export class Petdbservice
         }
     }
 
+    async agregarUsuario(usuario, password)
+    {
+        try{
+            let res = await fetch(`http://localhost:3000/pet/usuarios`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    "usuario": usuario,
+                    "password": password
+                })
+            });
+            if (!res.ok){
+                throw new Error("Error en la peticion");
+            }
+        }catch (e){
+            console.log(e);
+            return null;
+        }
+    }
+
 }

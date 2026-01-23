@@ -113,6 +113,23 @@ class PetService {
             await mongo_client.close();
         }
     }
+
+    static async postUser(usuario, password) {
+        const uri = 'mongodb://mongoadmin:secret@localhost:27017';
+        const mongo_client = new MongoClient(uri);
+        try {
+            await mongo_client.connect();
+            const database = mongo_client.db('PetsDB');
+            const table = database.collection('usuarios');
+
+            const user_data = await table.insertOne({usuario: usuario, password: password});
+            return user_data;
+        } catch (e) {
+            console.log(e);
+        } finally {
+            await mongo_client.close();
+        }
+    }
 }
 
 module.exports = PetService;
